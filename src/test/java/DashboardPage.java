@@ -10,7 +10,7 @@ public class DashboardPage {
     private SelenideElement firstCardButton = firstCardItem.$("[data-test-id = action-deposit]");
     private SelenideElement secondCardItem = form.$("[data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']");
     private SelenideElement secondCardButton = secondCardItem.$("[data-test-id = action-deposit]");
-    private static SelenideElement transactionAmountField = $("[data-test-id = amount] input");
+    private SelenideElement transactionAmountField = $("[data-test-id = amount] input");
     private SelenideElement сardNumberFromField = form.$("[data-test-id = from] input");
     private SelenideElement transferButton = form.$("[data-test-id = action-transfer]");
     private SelenideElement errorNotification = form.$("[data-test-id = error-notification]");
@@ -26,7 +26,7 @@ public class DashboardPage {
         secondCardButton.click();
     }
 
-    public static void enterAmount(String amount) {
+    public void enterAmount(String amount) {
         transactionAmountField.setValue(DataHelper.Amount.getAmount(amount));
     }
 
