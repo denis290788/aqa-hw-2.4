@@ -18,8 +18,8 @@ public class TransferBetweenOwnCardsTest {
 
     @Test
     void shouldTransferBetweenOwnCards() {
-        int initialFirstCardBalance = DashboardPage.CurrentBalance.GetFirstCardBalance();
-        int initialSecondCardBalance = DashboardPage.CurrentBalance.GetSecondCardBalance();
+        int initialFirstCardBalance = DashboardPage.CurrentBalance.getFirstCardBalance();
+        int initialSecondCardBalance = DashboardPage.CurrentBalance.getSecondCardBalance();
         String amount = "100";
         int amountInt = Integer.parseInt(amount);
         int expectedFirstCardBalance = initialFirstCardBalance + amountInt;
@@ -29,15 +29,15 @@ public class TransferBetweenOwnCardsTest {
         dashboardPage.enterAmount(amount);
         dashboardPage.enterCardNumber(DataHelper.getSecondCardNumber());
         dashboardPage.clickTransferButton();
-        int finalFirstCardBalance = DashboardPage.CurrentBalance.GetFirstCardBalance();
-        int finalSecondCardBalance = DashboardPage.CurrentBalance.GetSecondCardBalance();
+        int finalFirstCardBalance = DashboardPage.CurrentBalance.getFirstCardBalance();
+        int finalSecondCardBalance = DashboardPage.CurrentBalance.getSecondCardBalance();
         assertEquals(expectedFirstCardBalance, finalFirstCardBalance);
         assertEquals(expectedSecondCardBalance, finalSecondCardBalance);
     }
 
     @Test
     void shouldShowErrorMessageIfAmountGreaterThenBalance() {
-        int initialSecondCardBalance = DashboardPage.CurrentBalance.GetSecondCardBalance();
+        int initialSecondCardBalance = DashboardPage.CurrentBalance.getSecondCardBalance();
         int amountGreater = initialSecondCardBalance + 100;
         String amount = Integer.toString(amountGreater);
         DashboardPage dashboardPage = new DashboardPage();
@@ -72,8 +72,8 @@ public class TransferBetweenOwnCardsTest {
 
     @Test
     void shouldTransferNonIntegerAmount() {
-        int initialFirstCardBalance = DashboardPage.CurrentBalance.GetFirstCardBalance();
-        int initialSecondCardBalance = DashboardPage.CurrentBalance.GetSecondCardBalance();
+        int initialFirstCardBalance = DashboardPage.CurrentBalance.getFirstCardBalance();
+        int initialSecondCardBalance = DashboardPage.CurrentBalance.getSecondCardBalance();
         String amount = "20.50";
         double amountDouble = Double.valueOf(amount);
         double expectedFirstCardBalance = initialFirstCardBalance + amountDouble;
@@ -83,8 +83,8 @@ public class TransferBetweenOwnCardsTest {
         dashboardPage.enterAmount(amount);
         dashboardPage.enterCardNumber(DataHelper.getSecondCardNumber());
         dashboardPage.clickTransferButton();
-        double finalFirstCardBalance = DashboardPage.CurrentBalance.GetFirstCardBalance();
-        double finalSecondCardBalance = DashboardPage.CurrentBalance.GetSecondCardBalance();
+        double finalFirstCardBalance = DashboardPage.CurrentBalance.getFirstCardBalance();
+        double finalSecondCardBalance = DashboardPage.CurrentBalance.getSecondCardBalance();
         assertEquals(expectedFirstCardBalance, finalFirstCardBalance);
         assertEquals(expectedSecondCardBalance, finalSecondCardBalance);
     }
