@@ -47,13 +47,13 @@ public class DashboardPage {
         private static SelenideElement firstCardItem = form.$("[data-test-id='92df3f1c-a033-48e6-8390-206f6b1f56c0']");
         private static SelenideElement secondCardItem = form.$("[data-test-id='0f3f5c2a-249e-4c3d-8287-09f7a039391d']");
 
-        public static int GetFirstCardBalance() {
+        public static int getFirstCardBalance() {
             String firstCardBalanceStr = firstCardItem.text();
             int firstCardBalance = Integer.parseInt(firstCardBalanceStr.substring(29, firstCardBalanceStr.length() - 13).trim());
             return firstCardBalance;
         }
 
-        public static int GetSecondCardBalance() {
+        public static int getSecondCardBalance() {
             String secondCardBalanceStr = secondCardItem.text();
             int secondCardBalance = Integer.parseInt(secondCardBalanceStr.substring(29, secondCardBalanceStr.length() - 13).trim());
             return secondCardBalance;
